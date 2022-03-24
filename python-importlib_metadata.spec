@@ -3,7 +3,7 @@
 %bcond_without	doc	# Sphinx documentation
 %bcond_without	tests	# unit tests
 %bcond_without	python2 # CPython 2.x module
-%bcond_without	python3 # CPython 3.x module (for Python < 3.8)
+%bcond_with	python3 # CPython 3.x module (for Python < 3.8; newer built from python3-importlib_metadata.spec)
 
 Summary:	Read metadata from Python packages
 Summary(pl.UTF-8):	Odczyt metadanych z pakietów Pythona
@@ -51,8 +51,8 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	sed >= 4.0
 %if %{with doc}
-BuildRequires:	python3-rst.linker
-BuildRequires:	sphinx-pdg-3
+BuildRequires:	python-rst.linker
+BuildRequires:	sphinx-pdg-2
 %endif
 Requires:	python-modules >= 1:2.7
 BuildArch:	noarch
@@ -115,7 +115,7 @@ export LC_ALL=C.UTF-8
 %endif
 
 %if %{with doc}
-sphinx-build-3 -b html docs docs/_build/html
+sphinx-build-2 -b html docs docs/_build/html
 %endif
 
 %install
