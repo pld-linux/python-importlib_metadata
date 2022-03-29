@@ -10,7 +10,7 @@ Summary(pl.UTF-8):	Odczyt metadanych z pakietów Pythona
 Name:		python-importlib_metadata
 # keep 2.x here for python2 support
 Version:	2.1.3
-Release:	3
+Release:	3.1
 License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/importlib-metadata/
@@ -38,7 +38,7 @@ BuildRequires:	python3-modules >= 1:3.5
 BuildRequires:	python3-setuptools >= 1:30.3
 BuildRequires:	python3-setuptools_scm
 %if %{with tests}
-%if "%{py3_ver}" < "3.9"
+%if "%{_ver_lt '%{py3_ver}' '3.9'}" == "1"
 BuildRequires:	python3-importlib_resources >= 1.3
 %endif
 BuildRequires:	python3-packaging
@@ -48,7 +48,7 @@ BuildRequires:	python3-zipp >= 0.5
 %endif
 %endif
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.714
+BuildRequires:	rpmbuild(macros) >= 1.749
 BuildRequires:	sed >= 4.0
 %if %{with doc}
 BuildRequires:	python-rst.linker
